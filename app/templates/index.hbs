@@ -1,0 +1,16 @@
+<GeneralContainer>
+  <div class="p-5">
+    <h1 class="m-auto py-3 company-logo">VaultX</h1>
+    <h2 class="m-auto py-1 company-desc">Unlock the Extraordinary in Gaming,
+      Sneakers, and Techwear!</h2>
+    <h3 class="m-auto my-3 py-3 sale-desc">Site Wide Sale: grab the best deals
+      now!</h3>
+  </div>
+  <div class="d-flex flex-wrap">
+    {{#each this.model as |product|}}
+      <div class="col-md-6">
+        <Product data-test-product={{product.id}} @product={{product}} />
+      </div>
+    {{/each}}
+  </div>
+</GeneralContainer>

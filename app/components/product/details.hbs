@@ -1,0 +1,50 @@
+<div class="product-details">
+  {{! Header }}
+  <section>
+    <h3>{{@name}}</h3>
+    {{! Rating }}
+    <div class="text-warning fw-bold">
+      ({{@rating}}
+      <i class="fa-solid fa-star"></i>)
+    </div>
+  </section>
+
+  {{! Price }}
+  <section class={{unless @isDetails "h4"}}>
+    {{#if @price}}
+      <del data-test-original-price class="small text-black-50">{{currency
+          @price.original
+        }}</del>
+      <i data-test-current-price class="text-danger font-weight-bold">{{currency
+          @price.current
+        }}</i>
+    {{/if}}
+  </section>
+
+  {{#if @isDetails}}
+    <div class="d-flex justify-content-between align-items-end">
+      <div>
+        <h5>Color</h5>
+        <div class="product-colors active-{{@color}}">
+          {{#each @colors as |colorInfo|}}
+            <button
+              data-test-color
+              type="button"
+              class="product-color {{concat 'color-' colorInfo.color}}"
+              {{on "click" (fn @onChangeColor colorInfo.color)}}
+            ></button>
+          {{/each}}
+        </div>
+      </div>
+      <button
+        data-test-add-to-cart
+        class="btn btn-success"
+        type="button"
+        onClick={{this.addToCart}}
+      >
+        <i class="fa fa-shopping-cart mr-1"></i>
+        Add to cart
+      </button>
+    </div>
+  {{/if}}
+</div>

@@ -1,0 +1,6 @@
+MONGODB_URI=mongodb+srv://vaultx-admin:S5eVG2Rt04WKnt8f@vaultx.xwtsrwn.mongodb.net/?retryWrites=true&w=majority&appName=vaultx
+# SECRET_KEY=
+PORT=8000
+asdfasdf
+# DB_ADMIN_USER=vaultx-admin
+# DB_ADMIN_PASS=S5eVG2Rt04WKnt8f

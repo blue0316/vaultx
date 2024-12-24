@@ -1,0 +1,64 @@
+<GeneralContainer>
+
+  <div id="success-alert" class="alert alert-success" role="alert">
+  </div>
+  <div id="error-alert" class="alert alert-danger" role="alert"></div>
+
+  <div class="container">
+    <div class="card p-5 cart-container">
+      <h1>Shopping Cart</h1>
+      <div class="d-flex mt-3">
+        <div class="col-7 product-list">
+          {{#each this.cart.itemList as |item|}}
+            <div
+              class="cart-item d-flex align-items-center card mx-2 mb-3 product-description"
+            >
+              <div class="cart-item-thumbnail col-3">
+                <img src={{item.image}} alt="" />
+              </div>
+              <div class="col-9">
+                <div class="ml-3">
+                  <h6 class="mx-4">{{item.name}}</h6>
+                </div>
+                <div>
+                  <i class="mx-4 item-price">{{currency item.price}}</i>
+                  <input
+                    id={{item.id}}
+                    type="number"
+                    class="ml-auto input item-qty quantity"
+                    value={{item.count}}
+                    {{on "input" (fn this.updateItemCount item)}}
+                  />
+                </div>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+        <div class="col-5 fw-bold">
+          <section class="ml-auto text-right mb-5 product-description p-4">
+            <div class="row">
+              <span class="col">Subtotal</span>
+              <span class="col">{{currency this.subtotal}}</span>
+            </div>
+            <div class="row">
+              <span class="col">Tax</span>
+              <span class="col">{{currency this.tax}}</span>
+            </div>
+            <div class="row">
+              <span class="col">Total</span>
+              <span class="col">{{currency this.total}}</span>
+            </div>
+            <button
+              type="button"
+              class="btn btn-success mt-3 fw-bold"
+              onClick={{this.checkout}}
+            >
+              Check out
+            </button>
+          </section>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</GeneralContainer>

@@ -1,0 +1,19 @@
+nav {
+  position: sticky;
+  height: 55px;
+
+  .navbar-brand {
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 22px;
+  }
+
+  .nav-link:hover {
+    color: rgb(167, 38, 38);
+  }
+
+  .nav-link.active {
+    color: rgb(167, 38, 38);
+    font-weight: bold;
+  }
+}
